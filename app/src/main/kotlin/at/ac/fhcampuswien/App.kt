@@ -42,7 +42,7 @@ class App {
             throw IllegalArgumentException()
         }
         val numbersList = mutableListOf(1, 2, 3, 4, 5, 6, 7, 8, 9)
-        var randomNumberString: String = ""
+        var randomNumberString = ""
         for (count in 1..length) {
             val randomElement = numbersList[Random.nextInt(numbersList.size)]
             numbersList.remove(randomElement)
@@ -69,8 +69,8 @@ class App {
      */
     val checkUserInputAgainstGeneratedNumber: (Int, Int) -> CompareResult =
         { input, generatedNumber ->
-            val inputString = input.toString();
-            val genNumberString = generatedNumber.toString();
+            val inputString = input.toString()
+            val genNumberString = generatedNumber.toString()
             if (inputString.length != genNumberString.length) throw IllegalArgumentException()
 
             var digitsRight = 0
@@ -93,9 +93,9 @@ class App {
 }
 
 fun main() {
-    print("How long should the number be in digits? (For the default of 4, just press enter) ");
+    print("How long should the number be in digits? (For the default of 4, just press enter) ")
     val gameApp = App()
-    val lengthString = readln();
+    val lengthString = readln()
 
     if (lengthString == "") gameApp.playNumberGame()
     else gameApp.playNumberGame(lengthString.toInt())
