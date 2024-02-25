@@ -9,17 +9,30 @@
 ## Questions
 ### Describe how Kotlin handles null safety. What are nullable types and non-null types in Kotlin? (0,5 points)
 
-<span style="color:blue">Provide your answer here! </span>
-> Note: you can also use code snippets to illustrate your answer. 
-
+<span>Kotlin, by default, does not allow you at all to set variables to null (they are non-nullable). If one wants to have a nullable variable, they need to explicitly declare them as nullable with a question mark after the data type:</span>
 ```kotlin 
-// example code snippet
-val a: String = "value" // non-null type
+val myString: String? = null
 ```
-
+<span>If you then want to use functions on nullable variables, you can add a question mark again, to tell Kotlin to skip this line, if the value of the variable is null:</span>
+```kotlin 
+println(myString?.uppercase())
+```
+<span>You can also force Kotlin to execute it in anyway with two exclamation marks, even if the value is null, but then you risk NullPointerExceptions:</span>
+```kotlin 
+println(myString!!.uppercase())
+```
+<span></span>
 ### What are lambda expressions and higher order functions in Kotlin? Why would you store a function inside a variable? (0,5 points)
 
-<span style="color:blue">Provide your answer here!</span>
+<span>Lambda functions are functions, that can be passed to other functions as parameters. This works because in Kotlin, every function is a first class function (usable like objects).
+Higher-order functions can take functions as parameters or return a function.
+You can define a lambda function and pass it like this:</span>
+```kotlin 
+val sum: (Int, Int) -> Int = { item1, item2 -> item1 + item2 }
+println(sum(2,4)) // this will output 6
+
+```
+<span>Lambda functions allow dynamic behaviour, code reuse and functional programming patterns.</span>
 
 ### Provide a solution for the following number guessing game inside `App.kt`. (3 points)
 
